@@ -1,31 +1,91 @@
-<!doctype html>
-<html class="no-js" lang="en">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Responsive Layouts</title>
-  <meta name="description" content="This site will serve as the hub for many sub responsive layouts">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Gonzales Family Archives</title>
 
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="icon" href="icon.png">
-  <!-- Place favicon.ico in the root directory -->
+        body {
+            font-family: Georgia, serif;
+            background-color: #f7f4ef;
+            color: #2f2f2f;
+            min-height: 100vh;
+            padding: 40px;
+        }
 
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
+        h1 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 3rem;
+            letter-spacing: 2px;
+        }
 
-  <meta name="theme-color" content="#fafafa">
+        .year-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 20px;
+        }
+
+        .year-card {
+            background: white;
+            border: 2px solid #d9d2c5;
+            border-radius: 12px;
+            height: 120px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-decoration: none;
+            color: inherit;
+
+            font-size: 1.4rem;
+            font-weight: bold;
+
+            transition: all 0.2s ease;
+        }
+
+        .year-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            background-color: #faf8f3;
+        }
+    </style>
 </head>
-
 <body>
-  <!-- Place your site's HTML here -->
-  <p>This text will display on your site! Jan 19</p>
-  <script src="js/main.js"></script>
-</body>
 
+    <h1>The Gonzales Family Archives</h1>
+
+    <div class="year-grid" id="yearGrid"></div>
+
+    <script>
+        const startYear = 1997;
+        const endYear = 2014;
+
+        const grid = document.getElementById('yearGrid');
+
+        for (let year = startYear; year <= endYear; year++) {
+            const card = document.createElement('a');
+
+            card.className = 'year-card';
+
+            // future page for each year
+            card.href = `${year}.html`;
+
+            card.textContent = year;
+
+            grid.appendChild(card);
+        }
+    </script>
+
+</body>
 </html>
