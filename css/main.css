@@ -56,3 +56,41 @@ h1 {
 
     background: #faf7f0;
 }
+body {
+    font-family: Georgia, serif;
+    background-color: #f8f6f2;
+    margin: 0;
+}
+
+header {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+#year-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.year-card {
+    background: white;
+    border: 2px solid #d8d2c8;
+    border-radius: 12px;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #4a4035;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.year-card:hover {
+    transform: translateY(-5px);
+}
