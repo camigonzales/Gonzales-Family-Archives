@@ -1,463 +1,543 @@
 body {
     margin:0;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background: #f6f2ea;
-    color:#2b2b2b;
+    background: #F5F1DE;
+    color:#4A4035;
+    position: relative;
 }
-header {
-text-align:center;
-padding:50px 20px 20px;
+/* homepage floral background */
+body.home {
+    background-image: url("/img/Green\ Scrapbook\ Paper\ Vintage\ Pattern\ \(7\).jpg");
+    background-size: 700px;
+    background-repeat: repeat;
 }
-h1 {
-    font-size:3rem;
-    margin-bottom:10px;
-    letter-spacing:1px;
+/* soft scrapbook wash overlay */
+body.home::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 10%, rgba(255,255,255,0.35), transparent 45%),
+        radial-gradient(circle at 80% 30%, rgba(255,255,255,0.25), transparent 50%),
+        rgba(246, 242, 234, 0.35);
+    pointer-events: none;
+    z-index: 0;
 }
-#year-grid {
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax (140px,1fr));
-    gap:18px;
-    padding:40px;
-    max-width:1000px;
-    margin:0 auto;
+header,
+main {
+    position: relative;
+    z-index: 1;
 }
-.year-card {
-    background: white;
-
-    border: 2px solid #d8d0c2;
-
-    border-radius: 12px;
-
-    height: 110px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    font-size: 1.3rem;
-
-    font-weight: bold;
-
-    text-decoration: none;
-
-    color: inherit;
-
-    transition: 0.2s ease;
-
-}
-
-.year-card:hover {
-
-    transform: translateY(-4px);
-
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-
-    background: #faf7f0;
-}
-body {
-    font-family: Georgia, serif;
-    background-color: #f8f6f2;
-    margin: 0;
-}
-
-header {
+/* =========================
+   SCRAPBOOK HEADER CARD
+========================= */
+.scrapbook-header {
     text-align: center;
-    padding: 40px 20px;
+    padding: 70px 20px 30px;
+}
+.paper-card {
+    max-width: 820px;
+    margin: 0 auto;
+    background: #F5F1DE;
+    padding: 55px 45px;
+    border-radius: 16px;
+    border: 1px solid #B5B49C;
+    box-shadow:
+        0 18px 35px rgba(0,0,0,0.14),
+        0 3px 10px rgba(0,0,0,0.08),
+        inset 0 0 0 5px #B5B49C;
+    transform: rotate(-0.4deg);
+    position: relative;
+}
+.paper-card::before {
+    content: "";
+    position: absolute;
+    inset: 6px;
+    border-radius: 12px;
+    border: 1px dashed #B5B49C;
+    pointer-events: none;
+}
+.paper-card h1 {
+    font-size: 3.2rem;
+    margin: 0 0 10px;
+    color: #4A4035;
+}
+/* TAGLINE */
+.paper-card .tagline {
+    font-size: 1rem;
+    color: #5B4E42;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    position: relative;
+    padding-bottom: 10px;
+}
+.tagline::after {
+    content: "";
+    display: block;
+
+    width: 120px;
+    height: 1px;
+
+    background: #B5B49C;
+
+    margin: 10px auto 0;
+
+    opacity: 0.6;
+}
+/* =========================
+   SECTION TITLE
+========================= */
+.section-title {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: #4A4035;
+    margin: 45px 0 18px;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 22px;
+    background: #F5F1DE;
+    border: 1px solid #B5B49C;
+    border-radius: 6px;
+    box-shadow:
+        0 6px 14px rgba(0,0,0,0.10),
+        inset 0 0 0 3px #F7F2EA;
+    transform-origin: center;
+    transform: translateX(-50%) rotate(-0.5deg);
+}
+.section-title::after {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    height: 100%;
+    background: rgba(0,0,0,0.06);
+    border-radius: 6px;
+    z-index: -1;
+    filter: blur(6px);
+}
+.section-title::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    width: 64px;
+    height: 16px;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(95, 105, 75, 0.55),
+            rgba(110, 120, 85, 0.45)
+        );
+    border-radius: 3px;
+    box-shadow:
+        0 4px 10px rgba(0,0,0,0.18),
+        inset 0 1px 2px rgba(255,255,255,0.25);
+    z-index: 2;
+    clip-path: polygon(
+        0% 12%,
+        6% 0%,
+        14% 10%,
+        24% 2%,
+        36% 9%,
+        50% 3%,
+        64% 11%,
+        78% 4%,
+        92% 10%,
+        100% 0%,
+        100% 100%,
+        0% 100%
+    );
+    mix-blend-mode: multiply;
+    opacity: 0.9;
 }
 
+.section-title:hover {
+    transform: translateX(-50%) rotate(0deg);
+}
+/* =========================
+   YEAR GRID
+========================= */
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+}
 #year-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
-    gap: 15px;
-
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 18px;
+    padding: 25px;
 }
-
 .year-card {
-    background: #fffdf8;
-    border: 1px solid #d8d0c4;
-    border-radius: 8px;
-
     aspect-ratio: 1;
-
+    background: #F5F1DE;
+    border: 1px solid #B5B49C;
+    border-radius: 12px;
     display: flex;
-    justify-content: center;
     align-items: center;
-
-    font-family: Georgia, serif;
-    font-size: 1.5rem;
-    font-weight: normal;
-    color: #5b4e42;
-
+    justify-content: center;
+    font-size: 1.4rem;
+    color: #4A4035;
     text-decoration: none;
-
+    position: relative;
     box-shadow:
-        0 2px 6px rgba(0,0,0,0.08),
-        inset 0 0 0 4px #f7f2ea;
-
-    transition: all 0.25s ease;
+        0 10px 18px rgba(0,0,0,0.10),
+        inset 0 0 0 4px #B5B49C;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    transform-origin: center;
 }
-
+.year-card::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    width: 64px;
+    height: 16px;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(95, 105, 75, 0.55),
+            rgba(110, 120, 85, 0.45)
+        );
+    border-radius: 3px;
+    box-shadow:
+        0 4px 10px rgba(0,0,0,0.18),
+        inset 0 1px 2px rgba(255,255,255,0.25);
+    z-index: 2;
+    clip-path: polygon(
+        0% 12%,
+        6% 0%,
+        14% 10%,
+        24% 2%,
+        36% 9%,
+        50% 3%,
+        64% 11%,
+        78% 4%,
+        92% 10%,
+        100% 0%,
+        100% 100%,
+        0% 100%
+    );
+    mix-blend-mode: multiply;
+    opacity: 0.9;
+}
 .year-card:hover {
-    transform: translateY(-4px);
+    transform: rotate(-2.5deg) translateY(-3px);
     box-shadow:
-        0 8px 18px rgba(0,0,0,0.12),
-        inset 0 0 0 4px #f7f2ea;
+        0 16px 28px rgba(0,0,0,0.16),
+        inset 0 0 0 4px #B5B49C;
 }
+.year-card:nth-child(even):hover {
+    transform: rotate(2.5deg) translateY(-3px);
+}
+.year-card:nth-child(3n):hover {
+    transform: rotate(-1.5deg) translateY(-2px);
+}
+
+/* =========================
+   YEAR PAGES
+========================= */
+body.year-page {
+    background-image: url(/img/paper_62.jpg);
+    background-size: 600px;
+    background-repeat: repeat;
+}
+body.year-page::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 10%, rgba(255,255,255,0.35), transparent 45%),
+        radial-gradient(circle at 80% 30%, rgba(255,255,255,0.25), transparent 50%),
+        rgba(246, 242, 234, 0.35);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* =========================
+   BACK BUTTON
+========================= */
+
 .back-button {
+    position: absolute;
+    left: 25px;
+    top: 25px;
     display: inline-block;
     font-size: 0.85rem;
     text-decoration: none;
     color: #5b4e42;
-
-    background: #fffdf8;
-    border: 1px solid #d8d0c4;
+    background: #F5F1DE;
+    border: 1px solid #B5B49C;
     border-radius: 6px;
-
     padding: 6px 10px;
-
     box-shadow:
         0 2px 6px rgba(0,0,0,0.08),
-        inset 0 0 0 3px #f7f2ea;
-
-    margin-bottom: 10px;
+        inset 0 0 0 3px #B5B49C;
     transition: all 0.2s ease;
-    grid-column: 1;
-    justify-self: start;
 }
-
 .back-button:hover {
     transform: translateY(-2px);
-    box-shadow:
-        0 6px 14px rgba(0,0,0,0.12),
-        inset 0 0 0 3px #f7f2ea;
 }
-.year-header {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
 
-    padding: 20px 25px;
+/* =========================
+   YEAR HEADER
+========================= */
+.year-header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 50px 20px 20px;
 }
 .year-header h1 {
-    font-size: 2.5rem;
-    margin: 0;
-    padding-bottom: 8px;
-    color: #4a4035;
-    border-bottom: 1px solid #d8d0c4;
+    font-size: 4rem;
+    margin: 10px 0 0;
+    color: #4A4035;
+    letter-spacing: 1px;
+    border: none;  
 }
-#month-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 12px;
-
-    padding: 20px 25px;
+/* =========================
+   SCRAPBOOK ACCORDION
+========================= */
+details {
+    max-width: 650px;
+    margin: 0 auto 14px auto;
+    position: relative;
 }
-
-.month-card {
-    background: #fffdf8;
-    border: 1px solid #d8d0c4;
-    border-radius: 8px;
-
-    aspect-ratio: 1;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-size: 1.1rem;
-    color: #5b4e42;
-    text-decoration: none;
-
-    box-shadow:
-        0 2px 6px rgba(0,0,0,0.08),
-        inset 0 0 0 4px #f7f2ea;
-
-    transition: all 0.2s ease;
-}
-
-.month-card:hover {
-    transform: translateY(-3px);
-}
-.month-tabs {
-    display: flex;
-    gap: 8px;
-
-    padding: 10px 25px;
-    border-bottom: 1px solid #e3d8c9;
-    overflow-x: auto;
-}
-
-.tab {
-    background: #fffdf8;
-    border: 1px solid #d8d0c4;
-    border-bottom: none;
-
-    padding: 8px 12px;
-    font-size: 0.9rem;
-
-    color: #5b4e42;
+/* =========================
+   HEADER (TAPE LOOK)
+========================= */
+summary {
     cursor: pointer;
-
-    border-radius: 6px 6px 0 0;
-
-    box-shadow: inset 0 0 0 3px #f7f2ea;
-    transition: all 0.2s ease;
-}
-
-.tab:hover {
-    transform: translateY(-2px);
-}
-
-.tab.active {
-    background: #f7f2ea;
-    font-weight: bold;
-}
-
-.month-panel {
-    display: none;
-    padding: 20px 25px;
-}
-
-.month-panel.active {
-    display: block;
-}
-
-.caption {
-    font-size: 0.8rem;
+    list-style: none;
+    padding: 14px 18px;
+    background: #F5F1DE;
+    border: 1px solid rgba(181, 180, 156, 0.7);
+    font-size: 1.1rem;
+    color: #4A4035;
     text-align: center;
-    margin-top: 6px;
-    color: #5b4e42;
+    box-shadow:
+        0 6px 14px rgba(0,0,0,0.10),
+        inset 0 0 0 2px rgba(247, 242, 234, 0.7);
+    position: relative;
+    /* THIS is the “organic shape” */
+    border-radius: 14px 8px 16px 10px;
+    clip-path: polygon(
+        2% 8%,
+        10% 2%,
+        22% 6%,
+        34% 0%,
+        48% 7%,
+        62% 2%,
+        78% 6%,
+        92% 3%,
+        100% 10%,
+        98% 100%,
+        0% 100%
+    );
+    transition: transform 0.2s ease;
+}
+summary::-webkit-details-marker {
+    display: none;
+}
+details:nth-of-type(odd) summary {
+    transform: rotate(-0.4deg);
+}
+details:nth-of-type(even) summary {
+    transform: rotate(0.3deg);
+}
+summary:hover {
+    transform: translateY(-1px) rotate(0deg);
+}
+details[open] summary {
+    background: #F5F1DE;
+}
+details::before {
+    content: "";
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    top: 42px;   /* starts under summary */
+    bottom: 0;
+
+    background: #F5F1DE;
+
+    border: 1px solid #B5B49C;
+    border-top: none;
+
+    border-radius: 0 0 14px 14px;
+
+    box-shadow: 0 12px 24px rgba(0,0,0,0.10);
+
+    transform-origin: top;
+    transform: scaleY(0);
+    opacity: 0;
+
+    transition: transform 0.45s ease, opacity 0.3s ease;
+
+    z-index: 0;
+}
+details[open]::before {
+    transform: scaleY(1);
+    opacity: 1;
+}
+details > *:not(summary) {
+    position: relative;
+    z-index: 1;
+}
+summary {
+    position: relative;
+    z-index: 2;
+
+    cursor: pointer;
+    list-style: none;
+
+    padding: 14px 18px;
+
+    background: #F5F1DE;
+    border: 1px solid #B5B49C;
+
+    border-radius: 14px 10px 16px 10px;
+
+    box-shadow: 0 6px 14px rgba(0,0,0,0.10);
+
+    text-align: center;
 }
 
-.search-bar:focus {
-    outline: none;
-    border-color: #b9aa98;
-}
+
+/* =========================
+   PHOTO GRID / CARDS
+========================= */
+
 .photo-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 14px;
-
-    padding: 20px 25px;
+    padding: 6px 0 10px 0;
 }
 
 .photo {
-    background: #fffdf8;
-    border: 1px solid #d8d0c4;
-    border-radius: 10px;
-
-    overflow: hidden;
-
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
 }
 
 .photo:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+    transform: rotate(-0.3deg) translateY(-1px);
 }
 
 .photo img {
+    display: block;
     width: 100%;
     height: 170px;
     object-fit: cover;
-    display: block;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
 }
 
 .photo p {
-    margin: 0;
-    padding: 8px;
-
-    font-size: 0.75rem;
-    text-align: center;
-
-    color: #5b4e42;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
 }
+/* =========================
+LIGHTBOX
+========================= */
 
-.search-bar {
-    display: block;
-
-    width: 100%;
-    max-width: 450px;
-
-    margin: 12px auto 18px;
-
-    padding: 10px 12px;
-
-    border: 1px solid #d8d0c4;
-    border-radius: 8px;
-
-    background: #fffdf8;
-
-    font-family: Georgia, serif;
-    font-size: 0.9rem;
-
-    box-shadow: inset 0 0 0 3px #f7f2ea;
-}
-.year-header {
-    padding-bottom: 10px;
-}
-
-.month-tabs {
-    margin-top: 5px;
-}
 .lightbox {
-    display: none;
+display: none;
+position: fixed;
+inset: 0;
 
-    position: fixed;
-    inset: 0;
+background: rgba(0,0,0,0.85);
 
-    background: rgba(0,0,0,0.85);
+justify-content: center;
+align-items: center;
 
-    justify-content: center;
-    align-items: center;
+z-index: 999;
 
-    z-index: 999;
-
-    opacity: 0;
-    transition: opacity 0.25s ease;
+opacity: 0;
+transition: opacity 0.25s ease;
 }
 
 .lightbox.active {
-    display: flex;
-    opacity: 1;
+display: flex;
+opacity: 1;
 }
 
 .lightbox-content {
-    text-align: center;
-
-    transform: scale(0.96);
-    transition: transform 0.25s ease;
+text-align: center;
+transform: scale(0.96);
+transition: transform 0.25s ease;
 }
 
 .lightbox.active .lightbox-content {
-    transform: scale(1);
+transform: scale(1);
 }
 
 .lightbox img {
-    max-width: 92vw;
-    max-height: 82vh;
+max-width: 92vw;
+max-height: 82vh;
 
-    border-radius: 10px;
+border-radius: 10px;
 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    transform: translateY(-2px);
-    transition: opacity 0.2s ease;
+box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 #lightbox-caption {
-    color: #fff;
-    font-size: 0.9rem;
+color: #fff;
+font-size: 0.9rem;
 
-    margin-top: 10px;
-
-    opacity: 0.85;
+margin-top: 10px;
+opacity: 0.85;
 }
+
+/* nav buttons */
 .lightbox-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
 
-    background: rgba(255,255,255,0.15);
-    border: none;
+background: rgba(255,255,255,0.15);
+border: none;
 
-    color: white;
-    font-size: 2.5rem;
+color: white;
+font-size: 2.5rem;
 
-    width: 50px;
-    height: 80px;
+width: 50px;
+height: 80px;
 
-    cursor: pointer;
+cursor: pointer;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+display: flex;
+align-items: center;
+justify-content: center;
 
-    border-radius: 8px;
+border-radius: 8px;
 
-    transition: background 0.2s ease;
+transition: background 0.2s ease;
 }
 
 .lightbox-btn:hover {
-    background: rgba(255,255,255,0.3);
+background: rgba(255,255,255,0.3);
 }
 
 .lightbox-btn.prev {
-    left: 20px;
+left: 20px;
 }
 
 .lightbox-btn.next {
-    right: 20px;
-}
-.archive-search {
-    text-align: center;
-    margin-top: 40px;
-    padding: 20px;
+right: 20px;
 }
 
-.archive-search h2 {
-    font-weight: normal;
-    color: #4a4035;
-    margin-bottom: 5px;
-}
-
-.archive-search p {
-    font-size: 0.9rem;
-    color: #6b5f52;
-    margin-bottom: 15px;
-}
-
-#global-search {
-    width: 100%;
-    max-width: 500px;
-
-    padding: 10px 12px;
-
-    border: 1px solid #d8d0c4;
-    border-radius: 8px;
-
-    background: #fffdf8;
-
-    font-family: Georgia, serif;
-
-    box-shadow: inset 0 0 0 3px #f7f2ea;
-}
-
-#search-results {
-    margin-top: 20px;
-
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 12px;
-}
-.search-card {
-    cursor: pointer;
-
-    background: #fffdf8;
-    border: 1px solid #d8d0c4;
-    border-radius: 8px;
-
-    overflow: hidden;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-}
-
-.search-card img {
-    width: 100%;
-    height: 140px;
-    object-fit: cover;
-    display: block;
-}
-
-.search-card p {
-    margin: 0;
-    padding: 8px;
-    font-size: 0.8rem;
-    text-align: center;
-    color: #5b4e42;
-}
